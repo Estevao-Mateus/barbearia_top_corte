@@ -3,129 +3,386 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Barbearia Top Corte</title>
+  <meta name="description" content="Barbearia Top Corte - Estilo, confiança e cortes perfeitos em Luanda. Agende seu horário hoje!" />
+  <title>Barbearia Top Corte - Estilo e Qualidade</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f5f5f5;
-      color: #222;
+    :root {
+      --primary-color: #0a2a43;
+      --secondary-color: #1479b8;
+      --accent-color: #00c853;
+      --text-color: #222;
+      --bg-light: #f5f5f5;
+      --white: #ffffff;
     }
 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', 'Segoe UI', sans-serif;
+      background: var(--bg-light);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    /* Navigation */
+    nav {
+      background: var(--primary-color);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 15px 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-size: 1.5em;
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-menu li {
+      margin-left: 20px;
+    }
+
+    .nav-menu a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-menu a:hover {
+      color: var(--accent-color);
+    }
+
+    /* Header */
     header {
-      background: linear-gradient(to right, #0a2a43, #1479b8);
-      color: white;
-      padding: 40px 20px;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: var(--white);
       text-align: center;
+      padding: 80px 20px;
+      position: relative;
+      overflow: hidden;
     }
 
     header h1 {
-      margin: 0;
-      font-size: 2.5em;
+      font-size: 3em;
+      margin-bottom: 10px;
+      animation: fadeInDown 1s ease;
     }
 
     header p {
-      font-size: 1.2em;
-      margin-top: 10px;
+      font-size: 1.3em;
+      max-width: 600px;
+      margin: 0 auto 20px;
     }
 
     .btn-header {
       display: inline-block;
-      margin-top: 20px;
-      padding: 12px 25px;
-      background: #00c853;
-      color: white;
+      padding: 15px 30px;
+      background: var(--accent-color);
+      color: var(--white);
       text-decoration: none;
-      border-radius: 25px;
-      font-weight: bold;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
+    .btn-header:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Sections */
     section {
-      padding: 30px 20px;
-      background: white;
-      margin: 20px auto;
-      max-width: 800px;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 40px;
+      background: var(--white);
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
 
     section h2 {
-      color: #0a2a43;
+      color: var(--primary-color);
+      font-size: 2em;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    section h2::after {
+      content: '';
+      width: 50px;
+      height: 3px;
+      background: var(--accent-color);
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+    }
+
+    /* Services Carousel */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .service-item {
+      background: var(--bg-light);
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .service-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .service-item i {
+      font-size: 2em;
+      color: var(--accent-color);
       margin-bottom: 10px;
     }
 
+    /* Booking Form */
+    .booking-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 500px;
+      margin: 20px auto;
+    }
+
+    .booking-form input,
+    .booking-form select,
+    .booking-form button {
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+
+    .booking-form button {
+      background: var(--accent-color);
+      color: var(--white);
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .booking-form button:hover {
+      background: darken(var(--accent-color), 10%);
+    }
+
+    /* Footer */
     footer {
+      background: var(--primary-color);
+      color: var(--white);
       text-align: center;
-      background: #0a2a43;
-      color: white;
-      padding: 20px;
+      padding: 30px 20px;
       font-size: 0.9em;
     }
 
+    footer a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    /* WhatsApp Button */
     .whatsapp-float {
       position: fixed;
-      width: 50px;
-      height: 50px;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25d366;
-      color: white;
-      border-radius: 50px;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background: #25d366;
+      color: var(--white);
+      border-radius: 50%;
       text-align: center;
+      line-height: 60px;
       font-size: 30px;
-      box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-      z-index: 100;
-      text-decoration: none;
-      line-height: 50px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+      transition: transform 0.3s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2em;
+      }
+
+      header p {
+        font-size: 1em;
+      }
+
+      .nav-menu {
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: var(--primary-color);
+        display: none;
+      }
+
+      .nav-menu.active {
+        display: flex;
+      }
+
+      .nav-toggle {
+        display: block;
+        cursor: pointer;
+        color: var(--white);
+        font-size: 1.5em;
+      }
     }
   </style>
 </head>
 <body>
+  <nav>
+    <div class="nav-container">
+      <div class="nav-logo">Top Corte</div>
+      <ul class="nav-menu">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#beneficios">Benefícios</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+      <div class="nav-toggle"><i class="fas fa-bars"></i></div>
+    </div>
+  </nav>
 
   <header>
     <h1>Barbearia Top Corte</h1>
-    <p>Estilo, confiança e corte perfeito  tudo num só lugar.</p>
-    <a href="https://wa.me/244952413568?text=Olá!%20Gostaria%20de%20agendar%20um%20horário%20na%20Barbearia%20Top%20Corte." class="btn-header">Agende seu corte no WhatsApp</a>
+    <p>Estilo, confiança e cortes perfeitos – tudo num só lugar em Luanda.</p>
+    <a href="https://wa.me/244952413568?text=Olá!%20Gostaria%20de%20agendar%20um%20horário%20na%20Barbearia%20Top%20Corte." class="btn-header">Agende seu corte</a>
   </header>
 
   <section id="sobre">
     <h2>Quem Somos</h2>
-    <p>Com profissionais experientes, oferecemos o melhor em cortes, barbas e estilo masculino e feminino. Aqui, cada cliente é tratado como VIP.</p>
+    <p>Na Barbearia Top Corte, combinamos tradição e modernidade para oferecer cortes, barbas e estilos que destacam sua personalidade. Nossa equipe de profissionais altamente qualificados garante um atendimento VIP em um ambiente acolhedor.</p>
   </section>
 
   <section id="servicos">
-    <h2>Serviços</h2>
-    <ul>
-      <li>Corte Masculino, Feminino e Infantil</li>
-      <li>Barba com acabamento</li>
-      <li>Sobrancelha na régua</li>
-      <li>Hidratação capilar</li>
-      <li>Criação de Waves</li>
-    </ul>
+    <h2>Nossos Serviços</h2>
+    <div class="services-grid">
+      <div class="service-item">
+        <i class="fas fa-scissors"></i>
+        <p>Corte Masculino, Feminino e Infantil</p>
+      </div>
+      <div class="service-item">
+        <i class="fas fa-shower"></i>
+        <p>Barba com Acabamento</p>
+      </div>
+      <div class="service-item">
+        <i class="fas fa-ruler"></i>
+        <p>Sobrancelha na Régua</p>
+      </div>
+      <div class="service-item">
+        <i class="fas fa-tint"></i>
+        <p>Hidratação Capilar</p>
+      </div>
+      <div class="service-item">
+        <i class="fas fa-water"></i>
+        <p>Criação de Waves</p>
+      </div>
+    </div>
   </section>
 
   <section id="beneficios">
-    <h2>Por que escolher a Top Corte?</h2>
-    <p>✅ Atendimento personalizado</p>
-    <p>✅ Ambiente confortável e climatizado</p>
-    <p>✅ Agendamento rápido via WhatsApp</p>
-    <p>✅ Profissionais qualificados e experientes</p>
+    <h2>Por que Escolher a Top Corte?</h2>
+    <div class="services-grid">
+      <div class="service-item">
+        <p>✅ Atendimento personalizado</p>
+      </div>
+      <div class="service-item">
+        <p>✅ Ambiente confortável e climatizado</p>
+      </div>
+      <div class="service-item">
+        <p>✅ Agendamento rápido via WhatsApp</p>
+      </div>
+      <div class="service-item">
+        <p>✅ Profissionais qualificados</p>
+      </div>
+    </div>
   </section>
 
   <section id="contato">
-    <h2>Contato</h2>
-    <p>📍 Endereço: Rua Principal, nº 123, Luanda</p>
-    <p>📞 WhatsApp: <a href="https://wa.me/244952413568">+244 952 413 568</a></p>
-    <p>📧 Email: atendimento@topcorte.com</p>
+    <h2>Agende seu Horário</h2>
+    <form class="booking-form">
+      <input type="text" placeholder="Nome" required aria-label="Nome completo" />
+      <input type="tel" placeholder="Telefone" required aria-label="Número de telefone" />
+      <select required aria-label="Tipo de serviço">
+        <option value="" disabled selected>Selecione o serviço</option>
+        <option value="corte">Corte</option>
+        <option value="barba">Barba</option>
+        <option value="sobrancelha">Sobrancelha</option>
+        <option value="hidratacao">Hidratação</option>
+        <option value="waves">Waves</option>
+      </select>
+      <input type="date" required aria-label="Data do agendamento" />
+      <button type="submit">Enviar Agendamento</button>
+    </form>
+    <p><strong>📍 Endereço:</strong> Rua Principal, nº 123, Luanda</p>
+    <p><strong>📞 WhatsApp:</strong> <a href="https://wa.me/244952413568">+244 952 413 568</a></p>
+    <p><strong>📧 Email:</strong> <a href="mailto:atendimento@topcorte.com">atendimento@topcorte.com</a></p>
   </section>
 
   <footer>
-    <p>&copy; 2025 Barbearia Top Corte. Todos os direitos reservados.</p>
-    <p>Desenvolvido por <strong>N3rdSites</strong></p>
+    <p>© 2025 Barbearia Top Corte. Todos os direitos reservados.</p>
+    <p>Desenvolvido por <a href="https://n3rdsites.com" target="_blank"><strong>N3rdSites</strong></a></p>
   </footer>
 
-  <a href="https://wa.me/244952413568?text=Olá!%20Quero%20agendar%20um%20horário." class="whatsapp-float" target="_blank">💬</a>
+  <a href="https://wa.me/244952413568?text=Olá!%20Quero%20agendar%20um%20horário." class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
+  <script>
+    // Toggle mobile menu
+    document.querySelector('.nav-toggle').addEventListener('click', () => {
+      document.querySelector('.nav-menu').classList.toggle('active');
+    });
+
+    // Form submission (placeholder)
+    document.querySelector('.booking-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Agendamento enviado! Entraremos em contato em breve.');
+    });
+  </script>
 </body>
-</html>
+  </html>
